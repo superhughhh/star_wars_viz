@@ -3,7 +3,7 @@ import requests
 from json import loads
 import re
 
-
+@st.cache
 def requete(catégories, recherche):
     attributes = f"{catégories}/"
     research = f'?search={recherche}'
@@ -30,14 +30,14 @@ def requete(catégories, recherche):
 
 def afficher_information(recherche, ma_requete, choices):
     if recherche == "":
-        st.write(f"Nous avons trouvé {len(ma_requete)} résultats à votre recherche '{recherche}', les {choices} trouvé(es) sont :")
+        st.write(f"We found {len(ma_requete)} results for your search, {choices} found are :")
         st.write(', '.join([ma_requete[i][list(ma_requete[i].keys())[0]] for i in range(len(ma_requete))]))
     else:
         if len(ma_requete) == 0:
-            st.write("Nous n'avons pas de réponse à votre requête")
+            st.write("We have no answer to your request !")
         elif len(ma_requete) == 1:
-            st.write(f"Nous avons trouvé {len(ma_requete)} résultats à votre demande, le {choices} trouvé(e) est :")
+            st.write(f"We found {len(ma_requete)} results for your search, {choices} found are : :")
             st.write(ma_requete[0][list(ma_requete[0].keys())[0]])
         else:
-            st.write(f"Nous avons trouvé {len(ma_requete)} résultats à votre recherche '{recherche}', les {choices} trouvé(es) sont :")
+            st.write(f"We found {len(ma_requete)} results for your search '{recherche}', {choices} found are :")
             st.write(', '.join([ma_requete[i][list(ma_requete[i].keys())[0]] for i in range(len(ma_requete))]))
