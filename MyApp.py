@@ -26,7 +26,7 @@ st.write("##")
 
 if button:
     start = time.time()
-    ma_requete = function.requete(choix, research_input)
+    ma_requete = requete(choix, research_input)
     stop = time.time()
     with col2:
         st.write(f'Search-time : {int(stop-start)} seconds')
