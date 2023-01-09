@@ -36,7 +36,7 @@ def afficher_information(recherche, ma_requete, choices):
         if len(ma_requete) == 0:
             st.write("We have no answer to your request !")
         elif len(ma_requete) == 1:
-            st.write(f"We found {len(ma_requete)} results for your search, {choices} found are : :")
+            st.write(f"We found {len(ma_requete)} results for your search, {choices} found are :")
             st.write(ma_requete[0][list(ma_requete[0].keys())[0]])
         else:
             st.write(f"We found {len(ma_requete)} results for your search '{recherche}', {choices} found are :")

@@ -1,10 +1,13 @@
 import streamlit as st
 import api_request
 import time
+import base64
 
+with open('encoded_logo_image.txt', 'rb') as image_file:
+    image_content = image_file.read()
+    image_png = base64.b64decode(image_content)
+st.image(image_png)
 
-
-st.image('media/Star_Wars_Logo.png')
 
 st.write("##")
 st.write("##")
