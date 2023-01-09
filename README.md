@@ -11,5 +11,5 @@ l'app est déployé et visible sur le cloud streamlit à l'adresse suivante :
 
 ---
 
-[Link text Here](https://superhughhh-star-wars-viz-myapp-simplon-v2-arw6b8.streamlit.app/)
+[Liens vers l'app](https://superhughhh-star-wars-viz-myapp-simplon-v2-arw6b8.streamlit.app/)
 
