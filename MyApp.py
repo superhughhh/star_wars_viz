@@ -1,16 +1,15 @@
 import streamlit as st
-import api_request
+from my_function import *
 import time
-import base64
 
-with open('encoded_logo_image.txt', 'rb') as image_file:
-    image_content = image_file.read()
-    image_png = base64.b64decode(image_content)
-st.image(image_png)
+
+draw_background_image()
+st.image(decode_binary_image('binary_image/encoded_logo_image.txt'))
 
 
 st.write("##")
 st.write("##")
+
 
 api_key = ['films', 'people', 'planets', 'species', 'starships', 'vehicles']
 
@@ -24,10 +23,11 @@ with col1:
 st.write("##")
 st.write("##")
 
+
 if button:
     start = time.time()
-    ma_requete = api_request.requete(choix, research_input)
+    ma_requete = function.requete(choix, research_input)
     stop = time.time()
     with col2:
         st.write(f'Search-time : {int(stop-start)} seconds')
-    api_request.afficher_information(research_input, ma_requete, choix)
+    afficher_information(research_input, ma_requete, choix)

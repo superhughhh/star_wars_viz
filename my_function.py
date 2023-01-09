@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from json import loads
 import re
+import base64
 
 @st.cache
 def requete(catégories, recherche):
@@ -41,3 +42,25 @@ def afficher_information(recherche, ma_requete, choices):
         else:
             st.write(f"We found {len(ma_requete)} results for your search '{recherche}', {choices} found are :")
             st.write(', '.join([ma_requete[i][list(ma_requete[i].keys())[0]] for i in range(len(ma_requete))]))
+
+
+def draw_background_image():
+  st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-image: url("https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-25_bc15ec98.jpeg");
+        background-size: cover;
+        background-repeat: repeat;
+        background-position: center;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True)
+
+
+def decode_binary_image(image_binary_path):
+    with open(image_binary_path, 'rb') as image_file:
+        image_content = image_file.read()
+        image = base64.b64decode(image_content)
+        return image
